@@ -58,18 +58,17 @@ elif choice == "Summarize Document":
         if st.button("Summarize Document"):
             with open("doc_file.pdf", "wb") as f:
                 f.write(input_file.getbuffer())
-            col1, col2 = st.columns([1,1])
-            with col1:
-                st.info("File uploaded successfully")
-                text1,extracted_text = extract_text_from_pdf("doc_file.pdf")
-                word_count = countWords(extracted_text)
 
-                st.markdown("**Extracted Text: "+str(word_count)+" words**")
-                # show only first page
-                st.info(text1)
-            with col2:
-                st.markdown("**Summary Result**")
-                text = extract_text_from_pdf("doc_file.pdf")
-                doc_summary = text_summary(text,int(word_count/20),int(word_count/4))
-                st.markdown(str(len(doc_summary))+" words in summary")
-                st.success(doc_summary)
+            st.info("File uploaded successfully")
+            text1,extracted_text = extract_text_from_pdf("doc_file.pdf")
+            word_count = countWords(extracted_text)
+
+            st.markdown("**Extracted Text: "+str(word_count)+" words**")
+            # show only first page
+            st.info(text1)
+           
+            st.markdown("**Summary Result**")
+            text = extract_text_from_pdf("doc_file.pdf")
+            doc_summary = text_summary(text,int(word_count/20),int(word_count/4))
+            st.markdown(str(len(doc_summary))+" words in summary")
+            st.success(doc_summary)
