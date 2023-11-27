@@ -68,7 +68,7 @@ elif choice == "Summarize Document":
             st.info(text1)
            
             st.markdown("**Summary Result**")
-            text = extract_text_from_pdf("doc_file.pdf")
-            doc_summary = text_summary(text,int(word_count/20),int(word_count/4))
+            doc_summary = text_summary(extracted_text,int(word_count/20),int(word_count/4))
             st.markdown(str(len(doc_summary))+" words in summary")
+            doc_summary = doc_summary.replace('\n',' ')
             st.success(doc_summary)
