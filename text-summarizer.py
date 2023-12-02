@@ -34,7 +34,6 @@ def countWords(text):
     # Count the number of words
     return len(words)
 
-
 choice = st.sidebar.selectbox("Select your choice", ["Summarize Text", "Summarize Document"])
 
 if choice == "Summarize Text":
@@ -68,7 +67,8 @@ elif choice == "Summarize Document":
             st.info(text1)
            
             st.markdown("**Summary Result**")
-            doc_summary = text_summary(extracted_text,int(word_count/20),int(word_count/4))
-            st.markdown(str(len(doc_summary))+" words in summary")
+            doc_summary = text_summary(extracted_text,int(word_count/10),int(word_count/3))
+            word_count = countWords(doc_summary)
+            st.markdown(str(word_count)+" words in summary")
             doc_summary = doc_summary.replace('\n',' ')
             st.success(doc_summary)
