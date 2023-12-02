@@ -60,15 +60,14 @@ elif choice == "Summarize Document":
 
             st.info("File uploaded successfully")
             text1,extracted_text = extract_text_from_pdf("doc_file.pdf")
-            word_count = countWords(extracted_text)
 
             st.markdown("**Extracted Text: "+str(word_count)+" words**")
             # show only first page
-            st.info(text1)
+            # st.info(text1)
+            st.text_area(label="Original Text", value=text1, height=300)
            
             st.markdown("**Summary Result**")
             doc_summary = text_summary(extracted_text,int(word_count/10),int(word_count/3))
-            # word_count = countWords(doc_summary)
-            # st.markdown(str(word_count)+" words in summary")
+            # st.markdown(str(len(doc_summary))+" words in summary")
             doc_summary = doc_summary.replace('\n',' ')
             st.success(doc_summary)
