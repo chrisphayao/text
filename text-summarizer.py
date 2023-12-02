@@ -60,7 +60,7 @@ elif choice == "Summarize Document":
 
             st.info("File uploaded successfully")
             text1,extracted_text = extract_text_from_pdf("doc_file.pdf")
-
+            word_count = countWords(extracted_text)
             st.markdown("**Extracted Text: "+str(word_count)+" words**")
             # show only first page
             # st.info(text1)
